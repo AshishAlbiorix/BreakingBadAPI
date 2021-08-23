@@ -20,7 +20,7 @@ code {
   border-radius: 50%;
   box-shadow: 1px 2px 3px 4px #f2f3f4;
 }
-.col-lg-3{
+.col-lg-12{
   padding-top: 10px !important;
   padding-bottom: 10px !important;
   margin-top: 20px !important;
