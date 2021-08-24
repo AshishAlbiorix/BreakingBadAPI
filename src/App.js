@@ -15,7 +15,12 @@ function App() {
       setGeturl(res.data);
     });
   }, []);
-
+  function getData(id){
+    setGetid(id)
+    if(id && show == true){
+      setShow(false)
+    }
+  }
   return (
     <div className="App">
       <h1>Breaking Bad API</h1>
@@ -30,7 +35,7 @@ function App() {
             <div className="col-lg-8">
             <div className="text-center">
             <h4>{item.name}</h4>
-              { getid == item.char_id && show ? (
+              { getid == item.char_id && show == true ? (
                   <div className="content">
                     {item.birthday != "Unknown" ? (
                       <span>DOB: {item.birthday}</span>
@@ -55,12 +60,14 @@ function App() {
               ) :""}
               </div>
               <div>
+              
                 <Button onClick={() => {
                   setShow(true)
-                  setGetid(item.char_id)        
+                  getData(item.char_id)        
                   }}>
                   {getid == item.char_id && show ? "Hide" : "Show"}
                 </Button>
+                
               </div>
             </div>
           </div>
