@@ -3,21 +3,20 @@ import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function Character(props) {
+
   const [show, setShow] = useState(false);
-  return (<div>
-    <div className="row">
-      <div className="col-lg-4">
+  return (<React.Fragment>   
+      <div className="col-lg-3">
+          <div className="character-inner-box">
         <div className="user-img">
           <img src={props.data.img} className="img-fluid" />
         </div>
-      </div>
-      <div className="col-lg-8">
         <div className="text-center">
           <h4>{props.data.name}</h4>
-
+            
           {show == true ? (
             <div className="content">
-              <span>
+              <span >
                 {props.data.birthday != "Unknown"
                   ? "DOB:" + props.data.birthday
                   : ""}
@@ -50,9 +49,9 @@ function Character(props) {
             {show ? "Hide" : "Show"}
           </Button>
         </div>
+        </div>
       </div>
-    </div>
-    </div>
+    </React.Fragment>
   );
 }
 export default Character;
