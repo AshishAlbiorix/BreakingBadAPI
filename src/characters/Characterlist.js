@@ -9,16 +9,13 @@ function Characterlist() {
       setGeturl(res.data);
     });
   }, []);
-
   return (
     <div>
       <h1>Breaking Bad API</h1>
       <div className="container">
-        {
-          geturl.map((item, index) => (
-          <Character data={item} key={index}/>
-          ))
-        }
+        {geturl.map((item, index) => (
+          <Character data={item} key={index} />
+        ))}
       </div>
     </div>
   );
