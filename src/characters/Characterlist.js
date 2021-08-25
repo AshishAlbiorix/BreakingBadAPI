@@ -12,7 +12,7 @@ import Appearance from "./Appearance"
 import HideShow from "./HideShow"
 import Name from "./Name"
 
-function Character() {
+function Characterlist() {
   const [geturl, setGeturl] = useState([]);
   const [show, setShow] = useState(false);
   const [getid, setGetid] = useState("");
@@ -71,4 +71,4 @@ function Character() {
     </div>
   );
 }
-export default Character;
+export default Characterlist;

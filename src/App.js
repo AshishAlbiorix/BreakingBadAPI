@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import Image from "react-bootstrap/Image";
 import { Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Character from './characters/Character'
+import Characterlist from './characters/Characterlist'
 
 function App() {
   const [geturl, setGeturl] = useState([]);
@@ -25,7 +25,7 @@ function App() {
   return (
     
     <div className="App">
-      <Character/>
+      <Characterlist/>
     </div>
   );
 }
