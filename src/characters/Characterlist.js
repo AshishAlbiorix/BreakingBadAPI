@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Character from "./Character";
 import Pagination from "./Pagination";
 function Characterlist() {
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
