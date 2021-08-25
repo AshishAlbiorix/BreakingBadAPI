@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function Character(props) {
   const [show, setShow] = useState(false);
-  return (
+  return (<div>
     <div className="row">
       <div className="col-lg-4">
         <div className="user-img">
@@ -41,7 +41,7 @@ function Character(props) {
             ""
           )}
         </div>
-        <div>
+        <div className="btn-div">
           <Button
             onClick={() => {
               setShow(!show);
@@ -51,6 +51,7 @@ function Character(props) {
           </Button>
         </div>
       </div>
+    </div>
     </div>
   );
 }

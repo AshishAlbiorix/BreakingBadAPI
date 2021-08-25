@@ -10,14 +10,12 @@ function Characterlist() {
     });
   }, []);
   return (
-    <div>
-      <h1>Breaking Bad API</h1>
       <div className="container">
+        <h1>Breaking Bad API</h1>
         {geturl.map((item, index) => (
           <Character data={item} key={index} />
         ))}
       </div>
-    </div>
   );
 }
 export default Characterlist;
