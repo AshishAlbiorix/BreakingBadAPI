@@ -12,7 +12,6 @@ import Name from "./Name";
 
 function Character(props) {
   const [show, setShow] = useState(false);
-  const [getid, setGetid] = useState("");
   return (
     <div className="row">
       <Profileimage imageData={props.data.img} />
