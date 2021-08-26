@@ -23,7 +23,7 @@ function Characterlist() {
     };
     fetchPosts();
   }, []);
-
+  
   const handleFilter = (event) => {
     setSearch(event.target.value);
   };
