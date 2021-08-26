@@ -10,6 +10,9 @@ function Characterlist() {
   const [postsPerPage, setPostsPerPage] = useState(8);
   const [search, setSearch] = useState("");
 
+  function selectBoxFun(selectedVal){
+    setPostsPerPage(selectedVal)
+  }
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
@@ -19,11 +22,15 @@ function Characterlist() {
     };
     fetchPosts();
   }, []);
+
   const handleFilter = (event) => {
     setSearch(event.target.value);
   };
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+
   const currentPosts = posts.filter((item)=>{
     if (search == "") {
       return item;
@@ -32,7 +39,6 @@ function Characterlist() {
     }
   }).slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
   return (
     <div className="container">
       {loading ? (
@@ -55,31 +61,17 @@ function Characterlist() {
         </div>
       </div>
       <div className="row">
-        {currentPosts.map((item, index) => (
+        {currentPosts
+          .map((item, index) => (
             <Character data={item} key={index} />
           ))}
         {loading == false ? (
           <div className="col-lg-12 pagination-box">
-            <select
-              onChange={(e) => {
-                setPostsPerPage(e.target.value);
-              }}
-              className="form-control select-box"
-            >
-              <option value="8">Select</option>
-              <option>5</option>
-              <option>10</option>
-              <option>20</option>
-              <option>40</option>
-              <option>60</option>
-              <option>80</option>
-              <option>100</option>
-            </select>
             <Pagination
               postsPerPage={postsPerPage}
               totalPosts={posts.length}
               paginate={paginate}
-              currentPage={currentPage}
+              select={selectBoxFun}
             />
           </div>
         ) : null}
