@@ -29,13 +29,16 @@ function Characterlist() {
   };
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.filter((item)=>{
+
+  const searchPost = posts.filter((data)=>{
     if (search == "") {
-      return item;
-    } else if (item.name.toLowerCase().includes(search.toLowerCase())) {
-      return item;
+      return data;
+    } else if (data.name.toLowerCase().includes(search.toLowerCase())) {
+      return data;
     }
-  }).slice(indexOfFirstPost, indexOfLastPost);
+  });
+  
+  const currentPosts = searchPost.slice(indexOfFirstPost, indexOfLastPost);
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className="container">
@@ -68,7 +71,7 @@ function Characterlist() {
           <div className="col-lg-12 pagination-box">
             <Pagination
               postsPerPage={postsPerPage}
-              totalPosts={posts.length}
+              totalPosts={searchPost.length}
               paginate={paginate}
               select={selectBoxFun}
             />
