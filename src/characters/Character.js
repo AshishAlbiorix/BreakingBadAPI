@@ -12,8 +12,7 @@ function Character(props) {
           <img src={props.data.img} className="img-fluid" />
         </div>
         <div className="text-center">
-          <h4>{props.data.name}</h4>
-            
+          <h4>{props.data.name}</h4>            
           {show == true ? (
             <div className="content">
               <span >
