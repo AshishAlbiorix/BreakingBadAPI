@@ -112,6 +112,7 @@ h4{
     align-items: center;
     justify-content: center;
 }
+
 .select-box{
   max-width: 80px;
   height: auto;
@@ -122,4 +123,31 @@ h4{
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.search{
+  text-align: left;
+}
+.searchInputs {
+  margin:50px 0 20px;
+  position: relative;
+  display: inline-flex;
+}
+.search input{
+  background-color: white;
+  border: 0;
+  border-radius: 10px;
+  border-color: black;
+  border: 1px solid;
+  font-size: 18px;
+  padding: 15px;
+  height: 30px;
+  width: 300px;
+}
+.searchIcon{
+  position: absolute;
+  right: 7px;
+}
+
+.searchIcon svg{
+  width: 24px;
 }
