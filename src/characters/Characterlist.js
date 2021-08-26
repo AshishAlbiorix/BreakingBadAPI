@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Character from "./Character";
 import Pagination from "./Pagination";
 import SearchIcon from "@material-ui/icons/Search";
+import Quotes from "./Quotes"
 function Characterlist() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,11 +27,8 @@ function Characterlist() {
   const handleFilter = (event) => {
     setSearch(event.target.value);
   };
-
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
-
-
   const currentPosts = posts.filter((item)=>{
     if (search == "") {
       return item;
@@ -41,12 +39,14 @@ function Characterlist() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <div className="container">
+      
       {loading ? (
         <div className="loader">
           <img src={process.env.PUBLIC_URL + "loader.gif"} />
         </div>
       ) : null}
       <h1>Breaking Bad API</h1>
+      <Quotes/>
       <div className="search">
         <div className="searchInputs">
           <input
@@ -61,8 +61,7 @@ function Characterlist() {
         </div>
       </div>
       <div className="row">
-        {currentPosts
-          .map((item, index) => (
+        {currentPosts.map((item, index) => (
             <Character data={item} key={index} />
           ))}
         {loading == false ? (
@@ -75,6 +74,7 @@ function Characterlist() {
             />
           </div>
         ) : null}
+
       </div>
     </div>
   );
